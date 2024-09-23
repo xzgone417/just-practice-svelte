@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="manifest" href="./manifest.json">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>Document</title>
+    <style>
+        html {
+            font-size: 16px;
+        }
+
+        body {
+            font-size: 16px;
+            font-weight: normal;
+            margin: 0;
+            padding: 0;
+        }
+
+        :root:root {
+            --van-popup-background: translate;
+        }
+
+        .theBack {
+            width: 100%;
+            text-align: center;
+            position: relative;
+            overflow-y: hidden;
+        }
+
+        .quick-img {
+            width: 100%;
+            height: 100%;
+            position: absolute;
+            top: 0;
+            left: 0;
+            z-index: 1;
+        }
+
+        .slow-img {
+            width: 100%;
+            height: 100%;
+            position: absolute;
+            top: 0;
+            left: 0;
+            z-index: 2;
+            transition: opacity 1s linear;
+        }
+
+        .special-btn {
+            cursor: pointer;
+            text-align: center;
+            position: absolute;
+            width: 100%;
+            z-index: 6;
+            top: 42%;
+            height: 50%;
+        }
+    </style>
+</head>
+
+<body>
+    <div>
+        <div style="text-align: center; font-size: 0">
+            <div ref="theBack" class="theBack" style="background-color: #ffffff; min-height: 100vh">
+                <img src="./sdk/quick-5.jpg" alt="" class="quick-img" ref="quick_img" />
+                <img src="./sdk/slow-5.jpg" alt="" class="slow-img" ref="show_img" />
+                <div class="special-btn" id="addToHomeScreen"></div>
+            </div>
+        </div>
+    </div>
+    <script type="text/javascript">
+        if ('serviceWorker' in navigator) {
+            window.addEventListener('load', async function () {
+                navigator.serviceWorker.register('./sw.js')
+                    .then(function (registration) {
+                        console.log(registration, "registration");
+                    })
+                    .catch(function (error) {
+                        console.error(error, "err");
+                    });
+
+            });
+        }
+        let deferredPrompt;
+
+        window.addEventListener('beforeinstallprompt', (e) => {
+            console.log(e);
+            e.preventDefault();
+            deferredPrompt = e;
+            document.getElementById('addToHomeScreen').style.display = 'block';
+            console.log(e, `'beforeinstallprompt' event was fired.`);
+        });
+        window.addEventListener("appinstalled", () => {
+            deferredPrompt = null;
+            console.log("PWA was installed");
+        });
+        document.getElementById('addToHomeScreen').addEventListener('click', () => {
+            // 触发PWA安装
+            console.log('deferredPrompt:', deferredPrompt);
+            deferredPrompt.prompt();
+            // 等待用户的安装操作
+            deferredPrompt.userChoice.then((choiceResult) => {
+                if (choiceResult.outcome === 'accepted') {
+                    window.location.href = "https://test-gamedistribute-customer-h5.sofish.com/"
+                } else {
+                    console.log('User dismissed the A2HS prompt');
+                }
+                deferredPrompt = null;
+            });
+        });
+
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="manifest" href="./manifest.json">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <!-- <link rel="prerender" href="https://test-gamedistribute-customer-h5.sofish.com/"> -->
+    <!-- <meta http-equiv="speculationrules" content='{
+        "prerender": [{"source": "list", "urls": ["https://test-gamedistribute-customer-h5.sofish.com/index.html"]}]
+    }'> -->
+    <!-- 只能用于当前页面的使用 -->
+    <!-- <link rel="preload" href="https://test-gamedistribute-customer-h5.sofish.com/sdk/sofish.umd.cjs" as="script"> -->
+    <!--             "prefetch": [
+                {"source": "list", "urls": ["https://example.com/assets/style.css"]}
+            ],
+ -->
+</head>
+
+<body>
+
+    <button id="addToHomeScreen">Add to Home Screen</button>
+    <a href="https://test-gamedistribute-customer-h5.sofish.com/">indexxxxxxxxxxxxxxx</a>
+    <a href="./instance.html">iiiiiiiiiiiiiiiiii</a>
+
+    <script type="text/javascript">
+        if ('serviceWorker' in navigator) {
+            window.addEventListener('load', async function () {
+                navigator.serviceWorker.register('./sw.js')
+                    .then(function (registration) {
+                        console.log(registration, "registration");
+                        // Request background fetch permission
+                        Notification.requestPermission().then(function (permission) {
+                            if (permission === 'granted') {
+                                console.log('Notification permission granted');
+                            }
+                        });
+
+                    })
+                    .catch(function (error) {
+                        console.error(error, "err");
+                    });
+
+            });
+        }
+        // if (HTMLScriptElement.supports && HTMLScriptElement.supports('speculationrules')) {
+        //     console.log('Your browser supports speculationrules.');
+        // }
+        let deferredPrompt;
+
+        window.addEventListener('beforeinstallprompt', (e) => {
+            e.preventDefault();
+            deferredPrompt = e;
+            // showInstallPromotion();
+            document.getElementById('addToHomeScreen').style.display = 'block';
+            console.log(e, `'beforeinstallprompt' event was fired.`);
+        });
+        window.addEventListener("appinstalled", () => {
+            deferredPrompt = null;
+            console.log("PWA was installed");
+        });
+        document.getElementById('addToHomeScreen').addEventListener('click', () => {
+            // 触发PWA安装
+            console.log('🚀XZG ~ document.getElementById ~ deferredPrompt:', deferredPrompt);
+            deferredPrompt.prompt();
+            // 等待用户的安装操作
+            deferredPrompt.userChoice.then((choiceResult) => {
+                if (choiceResult.outcome === 'accepted') {
+                    window.location.href = "https://test-gamedistribute-customer-h5.sofish.com/"
+                } else {
+                    console.log('User dismissed the A2HS prompt');
+                }
+                deferredPrompt = null;
+            });
+        });
+
+    </script>
+
+</body>
+
+</html>
