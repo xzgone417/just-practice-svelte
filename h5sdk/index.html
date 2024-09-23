@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport">
+  <!-- <script src="https://unpkg.com/vconsole@latest/dist/vconsole.min.js"></script>
+  <script>
+    var vConsole = new window.VConsole();
+  </script> -->
+  <title>Document</title>
+  <script src="./dist/sofish.umd.cjs"></script>
+  <script src="./sdk/test/sofish-init.js"></script>
+
+  <style>
+    body {
+      background-color: #a9a9a9;
+      text-align: center;
+    }
+  </style>
+</head>
+
+<body>
+  <div>
+    <button type="button" onclick="sfBtn.Sdk.showLoginModal()">去登录</button>
+    <button type="button" onclick="sfBtn.Sdk.onLogout()">登出</button>
+    <button type="button" onclick="sfBtn.Sdk.toChangeLang('en-Us')">切換語言</button>
+    <button type="button" onclick='openThirdPay()'>支付</button>
+    <button type="button" onclick="sfBtn.Sdk.switchSofishButton()">切换显示</button>
+    <button type="button" onclick="submitGameData(1)">创建角色</button>
+    <button type="button" onclick="submitGameData(2)">进入游戏</button>
+  </div>
+  <sf-button></sf-button>
+
+  <script>
+    // 初始化 vConsole
+    // var vConsole = new VConsole();
+    var sfBtn = document.querySelector("sf-button");
+    var sdkCallback = {
+      // sdk登录成功之后得到的返回值回调,
+      onLoginSuccess: function (SFUser) { },
+      // sdk注销账号后的回调，建议退出游戏
+      onLogOffSuccess: function (SFUser) { },
+    };
+    sfBtn.Sdk.init(sdkInitConfig, sdkCallback);
+    // 添加桌面图标的方法
+    sfBtn.Sdk.addToDesktop({
+      // 成功添加桌面图标的回调
+      onLoginSuccess: function () { },
+      // 添加桌面图标失败的回调
+      onLogOffSuccess: function () { },
+    });
+    console.log(sfBtn.Sdk.havingShortcut, "vvv", sfBtn.havingShortcut);
+    function submitGameData(_type) {
+      var SFRoleData = {
+        type: _type,//调用时机
+        roleID: 1, //角色ID
+        roleName: '角色名称1', //角色名称
+        serverID: 20, //服务器ID
+        serverName: '服务器名称20', //服务器名称
+        roleLevel: '1', //角色等级
+        vip: '1', //vip等级
+        createTime: Math.floor(Date.now() / 1000), //角色创建的时间戳
+        extra: '1', //游戏自定义参数，没有可以传空
+      }
+      sfBtn.Sdk.submitGameData(SFRoleData);
+    }
+    function openThirdPay() {
+      var SFOrder = {
+        roleID: 1, //角色ID
+        roleName: '角色名称1', //角色名称
+        serverID: 20, //服务器ID
+        serverName: '服务器名称20', //服务器名称
+        roleLevel: '1', //角色等级
+        vip: '1', //vip等级
+        appLang: 'zh-TW', //语言编码，第三方支付页面语言(如：ru-RU)
+        productID: 'sofishsmaple0003', //游戏内的商品ID
+        productName: '680 diamond', //游戏商品商品名称，比如100元宝，500钻石...
+        productDesc: '680 diamond', //商品描述，比如 充值100元宝，赠送20元宝
+        price: 999, //商品金额(单位：分)
+        cpOrderID: 'sofishsmaple0003test', //游戏自己的订单号
+        payNotifyUrl: 'http://pay.game.com/pay/notify', //游戏服务器的支付通知回调地址
+        extra: '1', //游戏自定义参数(支付回调通知给游戏服务器发货时原样返回)，默认传1
+        currency: 'USD',//货币单位
+      }
+      sfBtn.Sdk.openThirdPay(SFOrder);
+    }
+  </script>
+  <!-- <script>
+    if ('serviceWorker' in navigator) {
+      window.addEventListener('load', function () {
+        navigator.serviceWorker.register('./service-worker.js')
+          .then(function (registration) {
+            console.log('Service Worker registered');
+          })
+          .catch(function (error) {
+            console.error('Service Worker registration failed:', error);
+          });
+      });
+    }
+
+  </script> -->
+
+</body>
+
+</html>

@@ -1,0 +1,35 @@
+{
+  "name": "sofish",
+  "private": true,
+  "version": "0.0.0",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build --mode dev",
+    "build-pro": "vite build --mode pro",
+    "preview": "vite preview",
+    "check": "svelte-check --tsconfig ./tsconfig.json"
+  },
+  "devDependencies": {
+    "@sveltejs/vite-plugin-svelte": "^3.0.2",
+    "@tsconfig/svelte": "^5.0.2",
+    "svelte": "^4.2.11",
+    "svelte-check": "^3.6.4",
+    "tslib": "^2.6.2",
+    "typescript": "^5.2.2",
+    "vite": "^5.1.4",
+    "vite-plugin-remove-console": "^2.2.0"
+  },
+  "dependencies": {
+    "@casual-ui/svelte": "^0.11.0",
+    "agnostic-svelte": "^1.1.27",
+    "blueimp-md5": "^2.19.0",
+    "crypto-js": "^4.2.0",
+    "facebook-nodejs-business-sdk": "^20.0.0",
+    "firebase": "^10.12.2",
+    "js-base64": "^3.7.7",
+    "less": "^4.2.0",
+    "svelte-i18n": "^4.0.0",
+    "thinkingdata-browser": "^2.0.1"
+  }
+}

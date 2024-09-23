@@ -1,0 +1,489 @@
+.container {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  width: 80vw;
+  min-width: 260px;
+  background-color: #f4f4f4;
+  padding: 20px;
+  border-radius: 20px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  text-align: start;
+  /* 其他可选样式 */
+}
+.container .form-group {
+  display: flex;
+  align-items: center;
+  position: relative;
+  margin-bottom: 20px;
+}
+.container .form-group input {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 10px;
+  border: 1px solid #ccc;
+  box-sizing: border-box;
+  /* 包括边框和内边距在输入宽度内 */
+  border-radius: 50px;
+  flex: 1;
+  /* 允许输入框占据剩余空间 */
+  padding-left: 35px;
+  /* 确保文本从图标右侧开始，值应大于图标宽度+间距 */
+  /*background-color: #f0f0f0;*/
+}
+.container .form-group .input-left-icon {
+  position: absolute;
+  left: 3%;
+  top: 41%;
+  margin-right: 10px;
+  background-size: contain;
+  background-repeat: no-repeat;
+  /*background-image: url("{imageUrl}h5sdk/user.png");*/
+}
+.container .form-group .input-user-icon {
+  transform: translateY(-56%);
+  width: 16px;
+  height: 16px;
+}
+.container .form-group .input-suo-icon {
+  transform: translateY(-56%);
+  width: 16px;
+  height: 16px;
+}
+.container .form-group .input-right-icon {
+  position: absolute;
+  right: 3%;
+  top: 48%;
+  margin-left: 10px;
+  background-size: contain;
+  background-repeat: no-repeat;
+}
+.container .form-group .input-eye-icon {
+  transform: translateY(-70%);
+  width: 16px;
+  height: 16px;
+  z-index: 70;
+}
+.container .form-group .input-button {
+  transform: translateY(-64%);
+  width: 70px;
+  height: 30px;
+  border-radius: 50px;
+  right: 1%;
+  border: red;
+}
+.container .swith-history {
+  display: flex;
+  align-items: center;
+  background-color: white;
+  min-height: 20%;
+  padding: 6px 0;
+  border-radius: 10px;
+}
+.container .swith-history .history-avatar-box {
+  width: 25%;
+  text-align: center;
+}
+.container .swith-history .history-avatar-box .history-avatar {
+  width: 36px;
+  height: 36px;
+}
+.container .swith-history .history-center-title {
+  width: 60%;
+  text-align: start;
+}
+.container .swith-history .history-center-title .history-name-text {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.container .swith-history .history-center-title .time-text {
+  margin: 0px;
+  text-align: start;
+}
+.container .swith-history .history-center-title .time-text img {
+  width: 15px;
+  height: 15px;
+  vertical-align: middle;
+}
+.container .swith-history .history-center-title .time-text span {
+  font-size: 8px;
+  color: gray;
+}
+.container .swith-history .history-pull-down-box {
+  width: 15%;
+  text-align: center;
+}
+.container .swith-history .history-pull-down-box .pull-down {
+  width: 20px;
+  height: 20px;
+  cursor: pointer;
+}
+.container .bind-class {
+  justify-content: center;
+}
+.container .form-text {
+  font-size: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 10px;
+}
+.container .form-text-red {
+  color: #ff4332;
+}
+.container .form-text-tips {
+  font-size: 14px;
+  margin-bottom: 5px;
+}
+.container .account-bind {
+  display: flex;
+  align-items: center;
+  position: relative;
+  margin-bottom: 10px;
+}
+.container .account-bind .account-bind-button {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 10px;
+  border: 1px solid #ccc;
+  box-sizing: border-box;
+  /* 包括边框和内边距在输入宽度内 */
+  border-radius: 50px;
+  flex: 1;
+  /* 允许输入框占据剩余空间 */
+  padding-left: 35px;
+  /* 确保文本从图标右侧开始，值应大于图标宽度+间距 */
+}
+.container .account-bind .fb-button {
+  background-color: #029cffff;
+  color: white;
+}
+.container .account-bind .google-button {
+  background-color: white;
+  color: #029cffff;
+  border: solid 1px #029cffff;
+}
+.container .account-bind .email-button {
+  background-color: white;
+  color: #6eb8ef;
+  border: solid 1px gray;
+}
+.container .account-bind .input-left-icon {
+  position: absolute;
+  left: 3%;
+  top: 41%;
+  margin-right: 10px;
+  background-size: contain;
+  background-repeat: no-repeat;
+}
+.container .account-bind .input-user-icon {
+  transform: translateY(-56%);
+  width: 30px;
+  height: 30px;
+}
+.container .login-register {
+  display: flex;
+  align-items: center;
+  position: relative;
+  margin-bottom: 20px;
+}
+.container .login-register button {
+  width: 100%;
+  padding: 10px;
+  background-color: white;
+  color: white;
+  border: none;
+  cursor: pointer;
+  margin: 5px;
+  border-radius: 50px;
+  color: #ff4332;
+  border: solid 1px red;
+}
+.container .login-register button:hover {
+  background-color: #ff4332;
+  color: white;
+}
+.container .user-policy {
+  display: flex;
+  align-items: center;
+  position: relative;
+  font-size: 12px;
+}
+.container .login-other {
+  display: flex;
+  position: relative;
+  justify-content: center;
+  align-items: center;
+}
+.container .login-other img {
+  margin: 10px;
+  margin-left: 30px;
+  width: 30px;
+  height: 30px;
+  background-size: contain;
+  background-repeat: no-repeat;
+}
+.container .forgot-password {
+  display: flex;
+  align-items: center;
+  position: relative;
+  font-size: 12px;
+  justify-content: flex-end;
+  margin-left: auto;
+  margin-right: 0px;
+  margin-bottom: 5px;
+}
+.container .image-container {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  justify-content: center;
+}
+.container .image-container .back-image {
+  position: absolute;
+  width: 12px;
+  height: 20px;
+  padding-left: 10px;
+  /*margin-left  : 10px;*/
+  left: 10px;
+  justify-items: flex-start;
+  background-size: contain;
+}
+.container .image-container .close-image {
+  position: absolute;
+  width: 15px;
+  height: 20px;
+  padding-right: 10px;
+  /*margin-right : 10px;*/
+  right: 10px;
+  justify-items: flex-end;
+  background-size: contain;
+}
+.container .image-container .sofish-image {
+  display: flex;
+  width: 60%;
+  height: 81%;
+  text-align: center;
+  align-items: center;
+  justify-content: center;
+}
+.container .image-login {
+  margin-bottom: 20px;
+  height: 19%;
+}
+.container .image-switch {
+  margin-bottom: 20px;
+  height: 24%;
+}
+.container .image-logoff {
+  margin-bottom: 10px;
+  height: 19%;
+}
+.container .image-logtips {
+  margin-bottom: 20px;
+  height: 9%;
+}
+.container label {
+  display: block;
+  margin-bottom: 5px;
+}
+.container-login {
+  z-index: 60;
+  height: auto;
+  transform: translateX(-50%) translateY(-50%);
+}
+.container-bind {
+  z-index: 50;
+  height: auto;
+  min-height: 250px;
+  transform: translateX(-50%) translateY(-50%);
+}
+.container-switch {
+  z-index: 50;
+  height: 30vh;
+  min-height: 236px;
+  transform: translateX(-50%) translateY(-50%);
+}
+.container-switch .history-options {
+  position: relative;
+  width: 100%;
+}
+.container-switch .history-options .dropdown-content {
+  position: absolute;
+  background-color: white;
+  min-width: 100%;
+  z-index: 100;
+  border-radius: 10px;
+}
+.container-switch .history-options .dropdown-content .history-option {
+  display: flex;
+  align-items: center;
+  position: relative;
+  width: 100%;
+  height: 20%;
+  box-sizing: border-box;
+  /* 包括边框和内边距在输入宽度内 */
+  padding: 2px 0;
+}
+.container-switch .history-options .dropdown-content .history-option .history-avatar-box {
+  width: 25%;
+  text-align: center;
+}
+.container-switch .history-options .dropdown-content .history-option .history-avatar-box .history-avatar {
+  width: 36px;
+  height: 36px;
+}
+.container-switch .history-options .dropdown-content .history-option .history-center-title {
+  width: 70%;
+  text-align: start;
+}
+.container-switch .history-options .dropdown-content .history-option .history-center-title .history-name-text {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.container-switch .history-options .dropdown-content .history-option .history-center-title .time-text {
+  margin: 0px;
+  text-align: start;
+}
+.container-switch .history-options .dropdown-content .history-option .history-center-title .time-text img {
+  width: 15px;
+  height: 15px;
+  vertical-align: middle;
+}
+.container-switch .history-options .dropdown-content .history-option .history-center-title .time-text span {
+  font-size: 8px;
+  color: gray;
+}
+.container-logout {
+  z-index: 60;
+  height: auto;
+  transform: translateX(-50%) translateY(-50%);
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  width: 80vw;
+  min-width: 236px;
+  max-width: 400px;
+  /* 限制表单最大宽度 */
+  background-color: #f4f4f4;
+  padding: 20px;
+  border-radius: 20px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+.container-logout .logout-agreement-top {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  margin-bottom: 10px;
+  height: 19%;
+  padding-bottom: 10px;
+  border-bottom: 1px solid #d7d7d7;
+}
+.container-logout .logout-agreement-top .logout-agreement-title {
+  font-size: 18px;
+  font-weight: 600;
+}
+.container-logout .logout-agreement-top .close-image {
+  position: absolute;
+  width: 15px;
+  height: 20px;
+  padding-right: 10px;
+  /*margin-right : 10px;*/
+  right: 10px;
+  justify-items: flex-end;
+  align-items: center;
+  background-size: contain;
+}
+.container-logout .logout-agreement-content .logout-agreement-text {
+  max-height: 60vh;
+  overflow-y: scroll;
+  margin: 10px;
+}
+.container-logout .logout-agreement-content .logout-agreement-label {
+  text-align: center;
+  margin: 20px 0;
+}
+.container-logout .logout-agreement-content .logout-agreement-label .logout-agreement-option-key {
+  width: 15px;
+  height: 15px;
+  margin-right: 6px;
+}
+.container-logout .logout-agreement-content .logout-btns {
+  text-align: center;
+}
+.container-logout .logout-agreement-content .logout-btns .logout-btn {
+  background-color: #ff4332;
+  width: 90%;
+  box-sizing: border-box;
+  color: white;
+  padding: 12px 0;
+  border-radius: 26px;
+  text-align: center;
+  border: none;
+  cursor: pointer;
+}
+.container-logout .logout-agreement-content .logout-btns .logout-btn:hover {
+  background-color: #a09c9c;
+  /* 鼠标悬停时颜色变深 */
+}
+.container-logout .logout-agreement-content .logout-btns .logout-btn:active {
+  background-color: #990000;
+  /* 按下按钮时 */
+}
+.container-logout .logout-agreement-content .logout-need-btns {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 20px 10px 10px 10px;
+}
+.container-logout .logout-agreement-content .logout-need-btns .logout-cancel-need-btn {
+  background-color: #fff;
+  color: #ff4332;
+  border: 1px solid #ff4332;
+  width: 44%;
+  box-sizing: border-box;
+  padding: 12px 0;
+  border-radius: 26px;
+  text-align: center;
+  cursor: pointer;
+}
+.container-logout .logout-agreement-content .logout-need-btns .logout-cancel-need-btn:hover {
+  background-color: #eeeeee;
+  /* 鼠标悬停时颜色变深 */
+}
+.container-logout .logout-agreement-content .logout-need-btns .logout-cancel-need-btn:active {
+  background-color: #eeeeee;
+}
+.container-logout .logout-agreement-content .logout-need-btns .logout-confirm-need-btn {
+  background-color: #ff4332;
+  width: 44%;
+  box-sizing: border-box;
+  color: white;
+  padding: 12px 0;
+  border-radius: 26px;
+  text-align: center;
+  border: none;
+  cursor: pointer;
+}
+.container-logout .logout-agreement-content .logout-need-btns .logout-confirm-need-btn:hover {
+  background-color: #cc0000;
+  /* 鼠标悬停时颜色变深 */
+}
+.container-logout .logout-agreement-content .logout-need-btns .logout-confirm-need-btn:active {
+  background-color: #cc0000;
+  /* 鼠标悬停时颜色变深 */
+}
+/* 响应式布局 */
+@media (max-width: 600px) {
+  .container {
+    max-width: 90%;
+    /* 在小屏幕上增加表单宽度 */
+  }
+  .switchaccount {
+    max-width: 90%;
+    /* 在小屏幕上增加表单宽度 */
+  }
+}
